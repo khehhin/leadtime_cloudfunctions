@@ -1,8 +1,9 @@
-'use strict';
+// 'use strict';
 
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const {WebhookClient} = require('dialogflow-fulfillment');
+const {Payload} = require('dialogflow-fulfillment');
 
 process.env.DEBUG = 'dialogflow:*'; // enables lib debugging statements
 admin.initializeApp(functions.config().firebase);
@@ -39,10 +40,34 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
        if (!doc.exists) {
         agent.add('No data found in the database!');
        } else {
-        agent.add(doc.data().entry);
+        const str = doc.data().entry;
+        console.log(str);
+        agent.add(str + "<<< ");
+        // Telegram inline keyboard buttons
+        const butts = {
+            "text": "Countries of origin",
+            "reply_markup": {
+                "inline_keyboard": [
+                    [
+                        {
+                            "text": "Singapore",
+                            "callback_data": "Hi"
+                        }
+                    ],
+                    [
+                        {
+                            "text": "Malaysia",
+                            "callback_data": "Hi"
+                        }
+                    ]
+                ]
+            }
+        };
+        agent.add(new Payload(agent.TELEGRAM, butts, {sendAsMessage:true}));
        }
        return Promise.resolve('Read complete');
-      }).catch(() => {
+      }).catch((exception) => {
+       console.log(exception);
        agent.add('Error reading entry from the Firestore database.');
        agent.add('Please add a entry to the database first by saying, "Write <your phrase> to the database"');
       });
@@ -55,11 +80,5 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
  agent.handleRequest(intentMap);
 });
 
-// Create and Deploy Your First Cloud Functions
-// https://firebase.google.com/docs/functions/write-firebase-functions
-
-exports.helloWorld = functions.https.onRequest((request, response) => {
- response.send("Hello from Firebase!");
-});
 
 
