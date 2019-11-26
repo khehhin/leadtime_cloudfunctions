@@ -118,6 +118,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
     function getDestinationCountries (agent) {
         // Get the database collection 'dialogflow' and document 'agent'
+        // origin = agent.parameters.
         const originCountriesCollection = db.collection('LeadTimeTable');
 
         // Get the value of 'entry' in the document and send it to the user
@@ -154,8 +155,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     let intentMap = new Map();
     intentMap.set('ReadFromFirestore', readFromDb);
     intentMap.set('WriteToFirestore', writeToDb);
-    intentMap.set('OriginCountry', getCountriesOrigin);
-    intentMap.set('DestinationCountry', getDestinationCountries());
+    intentMap.set('Welcome Intent', getCountriesOrigin);
+    intentMap.set('OriginCountry', getDestinationCountries());
     agent.handleRequest(intentMap);
 });
 
