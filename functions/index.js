@@ -101,11 +101,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
                     button["callback_data"] = doc.id;
                     buttons.push(button);
                 });
-                var custPayload = {"text": "Pick a country of origin:"};
+                var custPayload = {"text": "Welcome to ABC Freight Pte Ltd ChatBot! I can tell you our delivery lead time between countries.\nPick a country of origin:"};
                 var inline_keyboard = [buttons];
                 var reply_markup = {"inline_keyboard": inline_keyboard };
                 custPayload["reply_markup"] = reply_markup;
-                agent.add("Welcome to Delivery Lead Time Bot! I can tell you the delivery lead time between countries.");
                 agent.add(new Payload(agent.TELEGRAM, custPayload, {sendAsMessage:true}));
 
             }
@@ -118,11 +117,43 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
     function getDestinationCountries (agent) {
         // Get the database collection 'dialogflow' and document 'agent'
-        // origin = agent.parameters.
-        const originCountriesCollection = db.collection('LeadTimeTable');
+        origin = agent.parameters.countryOfOrigin;
+        const destCountriesCollection = db.collection('LeadTimeTable').doc(origin).collection("Destinations");
 
         // Get the value of 'entry' in the document and send it to the user
-        return originCountriesCollection.get().then( snapshot => {
+        return destCountriesCollection.get().then( snapshot => {
+            if (snapshot.empty) {
+                agent.add('No countries doc in collection');
+            } else {
+                var button = {};
+                var buttons =[];
+                snapshot.forEach( doc => {
+                    button = {};
+                    button["text"] = doc.id;
+                    button["callback_data"] = "to "+ doc.id;
+                    buttons.push(button);
+                });
+                var custPayload = {"text": "Delivering from "+ origin + " to ...\nPick a destination country:"};
+                var inline_keyboard = [buttons];
+                var reply_markup = {"inline_keyboard": inline_keyboard };
+                custPayload["reply_markup"] = reply_markup;
+                agent.add(new Payload(agent.TELEGRAM, custPayload, {sendAsMessage:true}));
+
+            }
+            return Promise.resolve('Read complete');
+        }).catch((exception) => {
+            console.log(exception);
+            agent.add('Error reading entry from the LeadTime table.');
+        });
+    }
+
+    function getServices (agent) {
+        // Get the database collection 'dialogflow' and document 'agent'
+        destination = agent.parameters.destinationCountry;
+        const servicesCollection = db.collection('LeadTimeTable').doc(origin).collection("Destinations").doc(destination).collection("Services");
+
+        // Get the value of 'entry' in the document and send it to the user
+        return servicesCollection.get().then( snapshot => {
             if (snapshot.empty) {
                 agent.add('No countries doc in collection');
             } else {
@@ -134,11 +165,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
                     button["callback_data"] = doc.id;
                     buttons.push(button);
                 });
-                var custPayload = {"text": "Pick a country of origin:"};
+                var custPayload = {"text": "Delivering from "+ origin + " to " + destination + " using...\nPick a your preferred service type:"};
                 var inline_keyboard = [buttons];
                 var reply_markup = {"inline_keyboard": inline_keyboard };
                 custPayload["reply_markup"] = reply_markup;
-                agent.add("Welcome to Delivery Lead Time Bot! I can tell you the delivery lead time between countries.");
                 agent.add(new Payload(agent.TELEGRAM, custPayload, {sendAsMessage:true}));
 
             }
@@ -149,6 +179,27 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
         });
     }
 
+    function getLeadTime (agent) {
+        // Get the database collection 'dialogflow' and document 'agent'
+        svcType = agent.parameters.serviceType;
+        const leadTimeCollection = db.collection('LeadTimeTable').doc(origin).collection("Destinations").doc(destination).collection("Services").doc(svcType);
+
+        // Get the value of 'entry' in the document and send it to the user
+        return leadTimeCollection.get().then( doc => {
+            if (doc.get("LeadTime")=="") {
+                agent.add('No lead time info found');
+            } else {
+                var days = doc.get("LeadTime");
+                agent.add("Delivering from "+ origin + " to " + destination + " using " + svcType +
+                    " service\nLead time is " + days + " days.\n\nThank you for using Lead Time Bot. Type 'Hi' to restart");
+
+            }
+            return Promise.resolve('Read complete');
+        }).catch((exception) => {
+            console.log(exception);
+            agent.add('Error reading entry from the LeadTime table.');
+        });
+    }
 
 
     // Map from Dialogflow intent names to functions to be run when the intent is matched
@@ -156,7 +207,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     intentMap.set('ReadFromFirestore', readFromDb);
     intentMap.set('WriteToFirestore', writeToDb);
     intentMap.set('Welcome Intent', getCountriesOrigin);
-    intentMap.set('OriginCountry', getDestinationCountries());
+    intentMap.set('OriginCountry', getDestinationCountries);
+    intentMap.set('DestinationCountry', getServices);
+    intentMap.set('ServiceTypeIntent', getLeadTime);
     agent.handleRequest(intentMap);
 });
 
