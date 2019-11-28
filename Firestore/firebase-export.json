@@ -1,0 +1,84 @@
+{
+  "__collections__": {
+    "LeadTimeTable": {
+      "Indonesia": {
+        "__collections__": {
+          "Destinations": {
+            "Cambodia": {
+              "__collections__": {
+                "Services": {
+                  "Deferred": {
+                    "LeadTime": 12,
+                    "__collections__": {}
+                  },
+                  "Express": {
+                    "LeadTime": 8,
+                    "__collections__": {}
+                  },
+                  "Regular": {
+                    "LeadTime": 10,
+                    "__collections__": {}
+                  }
+                }
+              }
+            },
+            "Vietnam": {
+              "__collections__": {
+                "Services": {
+                  "Express": {
+                    "LeadTime": 5,
+                    "__collections__": {}
+                  },
+                  "Regular": {
+                    "LeadTime": 6,
+                    "__collections__": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Singapore": {
+        "__collections__": {
+          "Destinations": {
+            "Malaysia": {
+              "__collections__": {
+                "Services": {
+                  "Express": {
+                    "LeadTime": 1,
+                    "__collections__": {}
+                  },
+                  "Regular": {
+                    "LeadTime": 2,
+                    "__collections__": {}
+                  }
+                }
+              }
+            },
+            "Thailand": {
+              "__collections__": {
+                "Services": {
+                  "Express": {
+                    "LeadTime": 3,
+                    "__collections__": {}
+                  },
+                  "Regular": {
+                    "LeadTime": 4,
+                    "__collections__": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "dialogflow": {
+      "agent": {
+        "entry": ">>aaaaa",
+        "__collections__": {}
+      }
+    }
+  }
+}
