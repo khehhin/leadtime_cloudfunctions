@@ -1,0 +1,154 @@
+{
+  "id": "a7c648d6-dc30-40e5-a3d7-cf1731d74048",
+  "name": "ServiceTypeIntent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "4e87970c-1688-4940-b0a0-9e38635f4ff7",
+          "required": true,
+          "dataType": "@ServiceType",
+          "name": "serviceType",
+          "value": "$serviceType",
+          "prompts": [
+            "Pick your preferred  Service Type>"
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "f40076cf-8c33-47c0-b53a-90ac54e86995",
+      "data": [
+        {
+          "text": "reg",
+          "alias": "serviceType",
+          "meta": "@ServiceType",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "e625555d-ac1e-4206-abca-3a2e097aa3b2",
+      "data": [
+        {
+          "text": "exp",
+          "alias": "serviceType",
+          "meta": "@ServiceType",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "d8f355d1-b496-49c4-87e9-073f141802e6",
+      "data": [
+        {
+          "text": "regular",
+          "alias": "serviceType",
+          "meta": "@ServiceType",
+          "userDefined": true
+        },
+        {
+          "text": " service",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "dd24ef3e-ccf4-4f99-add7-23ea79fe5b1c",
+      "data": [
+        {
+          "text": "express",
+          "alias": "serviceType",
+          "meta": "@ServiceType",
+          "userDefined": true
+        },
+        {
+          "text": " service",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "f5247c5f-2f80-41f2-861d-0404b3020596",
+      "data": [
+        {
+          "text": "use ",
+          "userDefined": false
+        },
+        {
+          "text": "Regular",
+          "alias": "serviceType",
+          "meta": "@ServiceType",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "21f367ba-e80a-4580-b4c6-8a84481ee694",
+      "data": [
+        {
+          "text": "Express",
+          "alias": "serviceType",
+          "meta": "@ServiceType",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    }
+  ],
+  "followUpIntents": [],
+  "liveAgentHandoff": false,
+  "endInteraction": true,
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "templates": []
+}

@@ -1,0 +1,188 @@
+{
+  "id": "fe1c6877-341e-4276-9a0e-674ce038cf37",
+  "name": "WriteToFirestore",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "a32bdf6c-99ce-4efc-9f09-30f43d3c8e2e",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "databaseEntry",
+          "value": "$databaseEntry",
+          "prompts": [
+            "What would you like to write to the Firestore database?"
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "condition": "",
+          "speech": "Whoops, looks like you haven't setup the Firestore database yet."
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "8d7e8d3b-b328-4219-affc-b273f5e0a81e",
+      "data": [
+        {
+          "text": "Write \"",
+          "userDefined": false
+        },
+        {
+          "text": "Dialogflow rules",
+          "alias": "databaseEntry",
+          "meta": "@sys.any",
+          "userDefined": true
+        },
+        {
+          "text": "\" to the database",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "da3729c7-babf-4fe1-9ccd-f65fc44f4e6a",
+      "data": [
+        {
+          "text": "write",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 1,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "2de85f1b-189d-4af9-bb34-3b11500d807e",
+      "data": [
+        {
+          "text": "Can I write to the Firestore database?",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "04e8fc49-ec05-426a-b190-cc64c851a4e2",
+      "data": [
+        {
+          "text": "I want to write to Firestore",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "3adcccb4-77a2-4a4b-ae75-3bfd1ba5911b",
+      "data": [
+        {
+          "text": "I want to write to the database",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "cc4ad784-3f4a-45d3-97e3-b4aed6f5a67e",
+      "data": [
+        {
+          "text": "Write ",
+          "userDefined": false
+        },
+        {
+          "text": "anything",
+          "alias": "databaseEntry",
+          "meta": "@sys.any",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "40819edd-e5b1-4fa7-9d85-4c54c2361409",
+      "data": [
+        {
+          "text": "Please write this to the database: ",
+          "userDefined": false
+        },
+        {
+          "text": "anything",
+          "alias": "databaseEntry",
+          "meta": "@sys.any",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "ca75da0d-1e2e-4ca9-a790-bb2be449c2d9",
+      "data": [
+        {
+          "text": "Write ",
+          "userDefined": false
+        },
+        {
+          "text": "anything",
+          "alias": "databaseEntry",
+          "meta": "@sys.any",
+          "userDefined": true
+        },
+        {
+          "text": " to the database",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    }
+  ],
+  "followUpIntents": [],
+  "liveAgentHandoff": false,
+  "endInteraction": false,
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "templates": []
+}

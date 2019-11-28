@@ -1,0 +1,128 @@
+{
+  "id": "c7aab4e0-7bd4-4cd0-b15a-01b281cd39c3",
+  "name": "DestinationCountry",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "80c5efeb-d185-46e4-9cfa-936bcd8a2c09",
+          "required": true,
+          "dataType": "@sys.geo-country",
+          "name": "destinationCountry",
+          "value": "$destinationCountry",
+          "prompts": [
+            "Pick a destination country>"
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "6ad13448-b9ee-49d1-9a26-be5a906b6a28",
+      "data": [
+        {
+          "text": "to ",
+          "userDefined": false
+        },
+        {
+          "text": "Cambodia",
+          "alias": "destinationCountry",
+          "meta": "@sys.geo-country",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "e1182fe4-cfb3-44c1-88ed-52a67c0c771c",
+      "data": [
+        {
+          "text": "deliver to ",
+          "userDefined": false
+        },
+        {
+          "text": "Indonesia",
+          "alias": "destinationCountry",
+          "meta": "@sys.geo-country",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "98bb223f-128e-4f82-b0c0-0f2880e1e1c3",
+      "data": [
+        {
+          "text": "going to ",
+          "userDefined": false
+        },
+        {
+          "text": "Myanmar",
+          "alias": "destinationCountry",
+          "meta": "@sys.geo-country",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "dce9ec7f-a287-46d8-8cd6-d42c41404654",
+      "data": [
+        {
+          "text": "to ",
+          "userDefined": false
+        },
+        {
+          "text": "Vietnam",
+          "alias": "destinationCountry",
+          "meta": "@sys.geo-country",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    }
+  ],
+  "followUpIntents": [],
+  "liveAgentHandoff": false,
+  "endInteraction": false,
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "templates": []
+}

@@ -1,0 +1,43 @@
+{
+  "id": "7115462f-0ad9-4a98-ac93-04207d6300de",
+  "name": "ServiceType",
+  "isOverridable": true,
+  "entries": [
+    {
+      "value": "Express",
+      "synonyms": [
+        "Express",
+        "express",
+        "expedite",
+        "fast",
+        "quickest",
+        "urgent",
+        "ex",
+        "exp"
+      ]
+    },
+    {
+      "value": "Regular",
+      "synonyms": [
+        "Regular",
+        "normal",
+        "standard",
+        "not urgent",
+        "reg"
+      ]
+    },
+    {
+      "value": "Deferred",
+      "synonyms": [
+        "Deferred",
+        "defer",
+        "defered",
+        "delayed"
+      ]
+    }
+  ],
+  "isEnum": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false,
+  "isRegexp": false
+}

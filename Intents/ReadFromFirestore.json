@@ -1,0 +1,101 @@
+{
+  "id": "f05f5b86-e03c-43ac-860b-ab324216ddd9",
+  "name": "ReadFromFirestore",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "condition": "",
+          "speech": "Please try this again later."
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "userSays": [
+    {
+      "id": "6f4e7c3c-6200-489e-a011-5202860db87b",
+      "data": [
+        {
+          "text": "what is in the database?",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "a4bd31e6-8c8e-4a5c-affe-7b232d373791",
+      "data": [
+        {
+          "text": "read from the Firestore database",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "7e683797-c041-4df5-88de-9b360a2c66db",
+      "data": [
+        {
+          "text": "read from the database",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "c75f8ad2-9cd4-46c0-9d0c-c3cfcec86171",
+      "data": [
+        {
+          "text": "read from Firestore",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    },
+    {
+      "id": "a559aac1-32c4-4a17-a743-e1f3c50be7bb",
+      "data": [
+        {
+          "text": "read",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0,
+      "updated": 0,
+      "isAuto": false
+    }
+  ],
+  "followUpIntents": [],
+  "liveAgentHandoff": false,
+  "endInteraction": false,
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "templates": []
+}
